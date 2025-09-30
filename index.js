@@ -35,20 +35,16 @@ const counters = {};
       totalBooksEl.innerText = total;
     }
 
-    function undoLastAction() {
+  function undoLastAction() {
+        while (history.length > 0) {
       const last = history.pop();
-      if (!last) return;
-
       if (last.type === 'book' && counters[last.book] > 0) {
         counters[last.book]--;
         updateCounters();
-      }
-
-      if (last.type === 'payment') {
-        payments.pop();
-        updatePayments();
+        break;
       }
     }
+  }
 
     function addPayment() {
       const value = parseFloat(paymentInput.value);

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Лічильник книжок</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 0px 160px;
+    }
+
+    .left-side {
+      flex: 1 1 60%;
+      min-width: 300px;
+    }
+
+    .right-side {
+      flex: 1 1 35%;
+      min-width: 250px;
+    }
+
+    .books {
+      margin-bottom: 20px;
+    }
+
+    .books-row {
+      margin: 10px 0;
+    }
+
+    .book-btn {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: #444;
+    }
+
+    .counters {
+      margin-top: 20px;
+    }
+
+    .counter-item {
+      margin: 5px;
+    }
+
+    .sum-section {
+      margin-top: 20px;
+      background-color: #2a2a2a;
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .undo-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #aa4444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .payment-section {
+      background-color: #2a2a2a;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .payment-input {
+      padding: 8px;
+      width: 100px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    .payment-btn {
+      padding: 8px 15px;
+      border-radius: 5px;
+      background-color: #555;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .payment-list {
+      margin-top: 15px;
+    }
+
+    .payment-item {
+      margin: 5px 0;
+    }
+
+    .remove-payment {
+      margin-left: 10px;
+      color: #ff5555;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .right-side {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Лічильник книжок</h1>
+
+  <div class="container">
+
+    <div class="left-side">
+      <div class="books">
+        <div class="books-row">
+          <button class="book-btn" data-book="Посібник з історії">Посібник з історії</button>
+          <button class="book-btn" data-book="Конспект з історії">Конспект з історії</button>
+          <button class="book-btn" data-book="Практика з історії">Практика з історії</button>
+        </div>
+        <div class="books-row">
+          <button class="book-btn" data-book="Конспект з математики">Конспект з математики</button>
+          <button class="book-btn" data-book="Практика з математики">Практика з математики</button>
+        </div>
+        <div class="books-row">
+          <button class="book-btn" data-book="Посібник з української мови">Посібник з української мови</button>
+        </div>
+      </div>
+      
+
+      <div class="counters" id="counters"></div>
+    
+
+      <div class="sum-section">
+        <h3>Загальна кількість книжок: <span id="total-books">0</span></h3>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="payment-section">
+        <h3>Додати оплату (грн)</h3>
+        <input type="number" id="payment-input" class="payment-input" placeholder="Сума" />
+        <button class="payment-btn" onclick="addPayment()">Додати</button>
+
+        <div class="payment-list" id="payment-list"></div>
+
+        <h4>Загальна сума: <span id="total-payment">0</span> грн</h4>
+      </div>
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+
+</body>
+</html>
